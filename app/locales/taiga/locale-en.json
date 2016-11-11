@@ -875,10 +875,8 @@
             "SECTION_TITLE": "Your projects",
             "PLACEHOLDER_SEARCH": "Search in...",
             "ACTION_CREATE_PROJECT": "Create project",
-            "ACTION_IMPORT_PROJECT": "Import project",
             "MANAGE_PROJECTS": "Manage projects",
             "TITLE_CREATE_PROJECT": "Create project",
-            "TITLE_IMPORT_PROJECT": "Import project",
             "TITLE_PRVIOUS_PROJECT": "Show previous projects",
             "TITLE_NEXT_PROJECT": "Show next projects",
             "HELP_TITLE": "Taiga Support Page",
@@ -903,44 +901,6 @@
             "NEW_ITEM": "New",
             "DISCOVER": "Discover",
             "ACTION_REORDER": "Drag & drop to reorder"
-        },
-        "IMPORT": {
-            "TITLE": "Importing Project",
-            "UPLOADING_FILE": "Uploading dump file",
-            "DESCRIPTION": "This process can take a while, please keep the window open.",
-            "ASYNC_IN_PROGRESS_TITLE": "Our Oompa Loompas are importing your project",
-            "ASYNC_IN_PROGRESS_MESSAGE": "This process could take a few minutes <br/> We will send you an email when ready",
-            "UPLOAD_IN_PROGRESS_MESSAGE": "Uploaded {{uploadedSize}} of {{totalSize}}",
-            "ERROR": "Our Oompa Loompas have some problems importing your dump data. Please try again.",
-            "ERROR_TOO_MANY_REQUEST": "Sorry, our Oompa Loompas are very busy right now. Please try again in a few minutes.",
-            "ERROR_MESSAGE": "Our Oompa Loompas have some problems importing your dump data: {{error_message}}",
-            "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) is too heavy for our Oompa Loompas, try it with a smaller than ({{maxFileSize}})",
-            "SYNC_SUCCESS": "Your project has been imported successfuly",
-            "PROJECT_RESTRICTIONS": {
-                "PROJECT_MEMBERS_DESC": "The project you are trying to import has {{members}} members, unfortunately, your current plan allows for a maximum of {{max_memberships}} members per project. If you would like to increase that limit please contact the administrator.",
-                "PRIVATE_PROJECTS_SPACE": {
-                    "TITLE": "Unfortunately, your current plan does not allow for additional private projects",
-                    "DESC": "The project you are trying to import is private. Unfortunately, your current plan does not allow for additional private projects."
-                },
-                "PUBLIC_PROJECTS_SPACE": {
-                    "TITLE": "Unfortunately, your current plan does not allow for additional public projects",
-                    "DESC": "The project you are trying to import is public. Unfortunately, your current plan does not allow additional public projects."
-                },
-                "PRIVATE_PROJECTS_MEMBERS": {
-                    "TITLE": "Your current plan allows for a maximum of {{max_memberships}} members per private project"
-                },
-                "PUBLIC_PROJECTS_MEMBERS": {
-                    "TITLE": "Your current plan allows for a maximum of {{max_memberships}} members per public project."
-                },
-                "PRIVATE_PROJECTS_SPACE_MEMBERS": {
-                    "TITLE": "Unfortunately your current plan doesn't allow additional private projects or an increase of more than {{max_memberships}} members per private project",
-                    "DESC": "The project that you are trying to import is private and has {{members}} members."
-                },
-                "PUBLIC_PROJECTS_SPACE_MEMBERS": {
-                    "TITLE": "Unfortunately your current plan doesn't allow additional public projects or an increase of more than {{max_memberships}} members per public project",
-                    "DESC": "The project that you are trying to import is public and has more than {{members}} members."
-                }
-            }
         },
         "LIKE_BUTTON": {
             "LIKE": "Like",
