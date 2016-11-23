@@ -976,7 +976,8 @@
         },
         "IMPORT": {
             "TITLE": "Import Project",
-            "DESCRIPTION": "Fresh and clean. So exciting!"
+            "DESCRIPTION": "Fresh and clean. So exciting!",
+            "IMPORT": "Import"
         }
     },
     "LIGHTBOX": {

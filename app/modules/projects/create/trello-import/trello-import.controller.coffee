@@ -14,14 +14,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: import-project.controller.coffee
+# File: trello-import.controller.coffee
 ###
 
-class ImportProjectController
+class TrelloImportController
     constructor: () ->
-        @.from = null
+        @.step = 'autorization-trello'
 
-    select: (from) ->
-        @.from = from
 
-angular.module("taigaProjects").controller("ImportProjectCtrl", ImportProjectController)
+angular.module("taigaProjects").controller("TrelloImportCtrl", TrelloImportController)

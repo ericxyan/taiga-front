@@ -14,14 +14,24 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: import-project.controller.coffee
+# File: trello-import.directive.coffee
 ###
 
-class ImportProjectController
-    constructor: () ->
-        @.from = null
+TrelloImportDirective = () ->
 
-    select: (from) ->
-        @.from = from
+    link = (scope, el, attr, ctrl) ->
 
-angular.module("taigaProjects").controller("ImportProjectCtrl", ImportProjectController)
+        console.log("kkkk")
+
+    return {
+        link: link,
+        templateUrl:"projects/create/trello-import/trello-import.html",
+        controller: "TrelloImportCtrl",
+        controllerAs: "vm",
+        bindToController: true,
+        scope: {}
+    }
+
+TrelloImportDirective.$inject = []
+
+angular.module("taigaProjects").directive("tgTrelloImport", TrelloImportDirective)

@@ -1,23 +1,23 @@
-.create-project.import-project
+.create-project.import-project(ng-if="!vm.from")
     h1.create-project-title(translate="PROJECT.IMPORT.TITLE")
     h3.create-project-description(translate="PROJECT.IMPORT.DESCRIPTION")
 
-    ul.import-project-from
-        li
-            .import-project-from-site(ng-click="vm.select('taiga')") Taiga
-            form.import-project-site-data(ng-if="vm.from === 'taiga'")
-                label(for="url")
-                input(
-                    type="text"
-                    placeholder="{{'PROJECT.DUPLICATE.PROJECT_TITLE' | translate}}"
-                    name="url"
-                    data-required="true"
-                    required
-                )
+    section.import-project-from
+        h1
+            tg-svg(svg-icon="icon-upload")
+            span(translate="PROJECT.IMPORT.IMPORT")
+        ul
+            li
+                .import-project-from-site Taiga
+            li
+                .import-project-from-site(ng-click="vm.select('trello')") Trello
+            li
+                .import-project-from-site Jira
+            li
+                .import-project-from-site Github
 
-        li
-            .import-project-from-site(ng-click="vm.select('trello')") Trello
-        li
-            .import-project-from-site(ng-click="vm.select('jira')") Jira
-        li
-            .import-project-from-site(ng-click="vm.select('github')") Github
+
+        a.back(href="") < {{'PROJECT.CREATE.BACK' | translate}}
+
+
+tg-trello-import(ng-if="vm.from == 'trello'")
