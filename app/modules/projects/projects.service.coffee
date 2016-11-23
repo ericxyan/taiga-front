@@ -22,9 +22,9 @@ groupBy = @.taiga.groupBy
 
 
 class ProjectsService extends taiga.Service
-    @.$inject = ["tgResources", "$projectUrl", "tgLightboxFactory"]
+    @.$inject = ["tgResources", "$projectUrl"]
 
-    constructor: (@rs, @projectUrl, @lightboxFactory) ->
+    constructor: (@rs, @projectUrl) ->
 
     duplicate: (projectId, data) ->
         return @rs.projects.duplicate(projectId, data)
