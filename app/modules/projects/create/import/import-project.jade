@@ -1,6 +1,5 @@
 .create-project.import-project(ng-if="!vm.from")
-    h1.create-project-title(translate="PROJECT.IMPORT.TITLE")
-    h3.create-project-description(translate="PROJECT.IMPORT.DESCRIPTION")
+    div(ng-include="'projects/create/import/import-header.html'")
 
     section.import-project-from
         h1
@@ -20,4 +19,7 @@
         a.back(href="") < {{'PROJECT.CREATE.BACK' | translate}}
 
 
-tg-trello-import(ng-if="vm.from == 'trello'")
+tg-trello-import(
+    ng-if="vm.from == 'trello'"
+    on-cancel="vm.onCancel()"
+)

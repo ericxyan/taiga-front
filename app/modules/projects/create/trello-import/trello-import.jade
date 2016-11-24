@@ -1,10 +1,19 @@
 .create-project.import-project(ng-if="vm.step == 'autorization-trello'")
-    h1.create-project-title(translate="PROJECT.IMPORT.TITLE")
-    h3.create-project-description(translate="PROJECT.IMPORT.DESCRIPTION")
+        p autorization...
 
-    section.import-project-from
-        h1
-            tg-svg(svg-icon="icon-upload")
-            span(translate="PROJECT.IMPORT.IMPORT")
+tg-trello-import-project-selector(
+    on-cancel="vm.onCancel()"
+    on-select-project="vm.onSelectProject(project)"
+    ng-if="vm.step == 'project-select-trello'"
+)
 
-        p autorization
+tg-trello-import-project-form(
+    project="vm.project"
+    on-save-project-details="vm.onSaveProjectDetails(project)"
+    ng-if="vm.step == 'project-form-trello'"    
+)
+
+tg-trello-import-project-members(
+    project="vm.project"
+    ng-if="vm.step == 'project-members-trello'"    
+)

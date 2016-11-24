@@ -14,17 +14,16 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: import-project.controller.coffee
+# File: trello-import-project-form.controller.coffee
 ###
 
-class ImportProjectController
-    constructor: () ->
-        @.from = null
+class TrelloImportProjectFormController
+    @.$inject = [
+        "tgCurrentUserService"
+    ]
 
-    select: (from) ->
-        @.from = from
+    constructor: (@currentUserService) ->
+        @.canCreatePublicProjects = @currentUserService.canCreatePublicProjects()
+        @.canCreatePrivateProjects = @currentUserService.canCreatePrivateProjects()
 
-    onCancel: () ->
-        @.from = null
-
-angular.module("taigaProjects").controller("ImportProjectCtrl", ImportProjectController)
+angular.module('taigaProjects').controller('TrelloImportProjectFormCtrl', TrelloImportProjectFormController)

@@ -966,6 +966,11 @@
             "PUBLIC_PROJECT": "Public Project",
             "PRIVATE_PROJECT": "Private Project"
         },
+        "COMMON": {
+            "DETAILS": "New project details",
+            "PROJECT_TITLE": "Project Name",
+            "PROJECT_DESCRIPTION": "Project Description"
+        },
         "DUPLICATE": {
             "TITLE": "Duplicate Project",
             "DESCRIPTION": "Start clean and keep your configuration",
@@ -977,7 +982,14 @@
         "IMPORT": {
             "TITLE": "Import Project",
             "DESCRIPTION": "Fresh and clean. So exciting!",
-            "IMPORT": "Import"
+            "IMPORT": "Import",
+            "ARCHIVED": "Archived",
+            "ARCHIVED_DESCRIPTION": "You have archived projects, Do you want to import your archived projects?",
+            "LINKS": "Links with Trello",
+            "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original Trello card?",
+            "TRELLO": {
+                "CHOOSE_BOARD": "Choose board that you want to import"
+            }
         }
     },
     "LIGHTBOX": {

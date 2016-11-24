@@ -1,0 +1,26 @@
+.create-project.import-project
+    div(ng-include="'projects/create/import/import-header.html'")
+
+    section.import-project-from
+        h1
+            tg-svg(svg-icon="icon-upload")
+            span(translate="PROJECT.IMPORT.IMPORT")
+
+        p(translate="PROJECT.IMPORT.TRELLO.CHOOSE_BOARD")
+        input(
+            ng-if="vm.projects.size > 5"
+            ng-model="vm.searchText"
+        )
+        
+        ul
+            li(
+                ng-repeat="project in vm.projects | toMutable | orderBy:'name' | filter:vm.searchText track by project.id"
+                ng-click="vm.onSelectProject({project: project})"
+            )
+                {{project.name}}
+                
+        a(
+            ng-click="vm.onCancel()"
+            href="",
+            translate="COMMON.CANCEL"
+        )

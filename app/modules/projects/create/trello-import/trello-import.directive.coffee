@@ -18,18 +18,14 @@
 ###
 
 TrelloImportDirective = () ->
-
-    link = (scope, el, attr, ctrl) ->
-
-        console.log("kkkk")
-
     return {
-        link: link,
         templateUrl:"projects/create/trello-import/trello-import.html",
         controller: "TrelloImportCtrl",
         controllerAs: "vm",
         bindToController: true,
-        scope: {}
+        scope: {
+            onCancel: '&'
+        }
     }
 
 TrelloImportDirective.$inject = []

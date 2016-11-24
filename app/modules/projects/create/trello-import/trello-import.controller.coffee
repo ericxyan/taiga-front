@@ -18,8 +18,20 @@
 ###
 
 class TrelloImportController
-    constructor: () ->
+    constructor: ($timeout) ->
         @.step = 'autorization-trello'
+        @.project = null
 
+        $timeout () =>
+            @.step = 'project-select-trello'
+        , 1000
 
-angular.module("taigaProjects").controller("TrelloImportCtrl", TrelloImportController)
+    onSelectProject: (project) ->
+        @.project = project
+        @.step = 'project-form-trello'
+
+    onSaveProjectDetails: (project) ->
+        @.project = project
+        @.step = 'project-members-trello'
+
+angular.module('taigaProjects').controller('TrelloImportCtrl', ['$timeout', TrelloImportController])

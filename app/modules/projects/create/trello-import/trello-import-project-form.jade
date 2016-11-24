@@ -1,0 +1,100 @@
+.create-project.import-project
+    div(ng-include="'projects/create/import/import-header.html'")
+    
+    form
+        fieldset
+            label(
+                translate="PROJECT.COMMON.DETAILS"
+                for="project-name"
+            )
+            input(
+                type="text"
+                ng-model="vm.project.name"
+                placeholder="{{'PROJECT.COMMON.PROJECT_TITLE' | translate}}"
+                name="project-name"
+                data-required="true"
+                required
+            )
+        fieldset
+            textarea(
+                ng-model="vm.project.description"
+                placeholder="{{'PROJECT.COMMON.PROJECT_DESCRIPTION' | translate}}"
+                data-required="true"
+                required
+            ) 
+        p(
+            ng-if="!vm.canCreatePrivateProjects"
+            translate="PROJECT.CREATE.MAX_PRIVATE_PROJECTS"
+        )
+        
+        .privacity(role="group")
+            fieldset
+                input(
+                    type="radio"
+                    name="is_private"
+                    id="template-public"
+                    data-required="true"
+                    aria-hidden="true"
+                    ng-value="false"
+                    ng-model="vm.project.is_private"
+                    required
+                    ng-disabled="!vm.canCreatePublicProjects"
+                    ng-checked="vm.canCreatePublicProjects"
+                )
+                label(for="template-public")
+                    tg-svg(svg-icon="icon-discover")
+                    span(translate="PROJECT.CREATE.PUBLIC_PROJECT")
+            fieldset
+                input(
+                    type="radio"
+                    name="is_private"
+                    id="template-private"
+                    data-required="true"
+                    ng-value="true"
+                    ng-model="vm.project.is_private"
+                    aria-hidden="true"
+                    required
+                    ng-disabled="!vm.canCreatePrivateProjects"
+                    ng-checked="!vm.canCreatePublicProjects"
+                )
+                label(for="template-private")
+                    tg-svg(svg-icon="icon-lock")
+                    span(translate="PROJECT.CREATE.PRIVATE_PROJECT")
+                    
+            fieldset
+                label(for="archieved-projects")
+                    strong {{'PROJECT.IMPORT.ARCHIVED' | translate}}
+                    {{'PROJECT.IMPORT.ARCHIVED_DESCRIPTION' | translate}}
+                    
+                .check
+                    input.activate-input(
+                        name="archieved-projects"
+                        type="checkbox"
+                    )
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")    
+                    
+            fieldset
+                label(for="links")
+                    strong {{'PROJECT.IMPORT.LINKS' | translate}}
+                    {{'PROJECT.IMPORT.LINKS_DESCRIPTION' | translate}}
+                    
+                .check
+                    input.activate-input(
+                        name="links"
+                        type="checkbox"
+                    )
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")                                  
+
+        .create-project-action
+            button.button-green(
+                type="submit"
+                ng-click="vm.onSaveProjectDetails({project: project})"
+                title="{{'PROJECT.CREATE.TITLE' | translate}}"
+                ng-disabled="!vm.project.name || !vm.project.description"
+                tg-loading="vm.loading"
+                translate="PROJECT.CREATE.TITLE"
+            )    

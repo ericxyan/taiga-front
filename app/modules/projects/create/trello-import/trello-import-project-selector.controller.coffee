@@ -14,17 +14,17 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: import-project.controller.coffee
+# File: trello-import.controller.coffee
 ###
 
-class ImportProjectController
-    constructor: () ->
-        @.from = null
+class TrelloImportProjectSelectorController
+    @.$inject = [
+        'tgTrelloImportService'
+    ]
 
-    select: (from) ->
-        @.from = from
+    constructor: (@trelloImportService) ->
+        taiga.defineImmutableProperty @, 'projects', () => return @trelloImportService.projects
 
-    onCancel: () ->
-        @.from = null
+        @trelloImportService.fetchProjects()
 
-angular.module("taigaProjects").controller("ImportProjectCtrl", ImportProjectController)
+angular.module('taigaProjects').controller('TrelloImportProjectSelectorCtrl', TrelloImportProjectSelectorController)
