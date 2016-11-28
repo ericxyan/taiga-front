@@ -1,8 +1,8 @@
 .create-project
     h1.create-project-title(translate="PROJECT.DUPLICATE.TITLE")
     h3.create-project-description(translate="PROJECT.DUPLICATE.DESCRIPTION")
-    form.duplicate-project
-        fieldset.duplicate-project-reference
+    form.duplicate-project.e2e-duplicate-project
+        fieldset.duplicate-project-reference.e2e-duplicate-project-reference
             select(
                 ng-model="vm.duplicatedProject.project"
                 ng-change="vm.getReferenceProject(vm.duplicatedProject.project)"
@@ -22,7 +22,7 @@
                 translate="PROJECT.DUPLICATE.DETAILS"
                 for="project-name"
             )
-            input(
+            input.e2e-duplicate-project-title(
                 type="text"
                 ng-model="vm.duplicatedProject.name"
                 placeholder="{{'PROJECT.DUPLICATE.PROJECT_TITLE' | translate}}"
@@ -31,7 +31,7 @@
                 required
             )
         fieldset.duplicate-project-description
-            textarea(
+            textarea.e2e-duplicate-project-description(
                 ng-model="vm.duplicatedProject.description"
                 placeholder="{{'PROJECT.DUPLICATE.PROJECT_DESCRIPTION' | translate}}"
                 data-required="true"
@@ -112,7 +112,7 @@
                 title="{{'PROJECT.CREATE.BACK' | translate}}"
                 translate="PROJECT.CREATE.BACK"
             )
-            button.button-green.create-project-action-duplicate(
+            button.button-green.create-project-action-duplicate.e2e-create-project-action-duplicate(
                 type="submit"
                 ng-click="vm.onDuplicateProject()"
                 title="{{'PROJECT.CREATE.TITLE' | translate}}"
