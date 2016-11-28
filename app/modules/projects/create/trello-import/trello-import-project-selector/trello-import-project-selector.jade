@@ -4,21 +4,25 @@
     section.import-project-from
         h1
             tg-svg(svg-icon="icon-upload")
-            span(translate="PROJECT.IMPORT.IMPORT")
+            span(translate="PROJECT.IMPORT.TRELLO.TITLE")
 
-        p(translate="PROJECT.IMPORT.TRELLO.CHOOSE_BOARD")
-        input(
-            ng-if="vm.projects.size > 5"
-            ng-model="vm.searchText"
-        )
-        
+        p.choose-board(translate="PROJECT.IMPORT.TRELLO.CHOOSE_BOARD")
+
+        form.search-project
+            fieldset
+                input.search-project(
+                    ng-if="vm.projects.size > 1"
+                    ng-model="vm.searchText"
+                )
+
+                tg-svg(svg-icon="icon-search", title="{{'SEARCH.TITLE_ACTION_SEARCH' | translate}}")
+
         ul
-            li(
+            li.project-name(
                 ng-repeat="project in vm.projects | toMutable | orderBy:'name' | filter:vm.searchText track by project.id"
                 ng-click="vm.onSelectProject({project: project})"
-            )
-                {{project.name}}
-                
+            ) {{project.name}}
+
         a(
             ng-click="vm.onCancel()"
             href="",

@@ -1,0 +1,28 @@
+tg-trello-import-project-selector {
+    .search-project {
+        border-color: $whitish;
+        border-width: 0 0 2px;
+        width: 100%;
+        &:focus {
+            border-color: $gray;
+            outline: none;
+            transition: border-bottom .2s linear;
+        }
+    }
+    .choose-board {
+        @include font-type(bold);
+    }
+    .search-project {
+        fieldset {
+            position: relative;
+        }
+        tg-svg {
+            position: absolute;
+            right: .7rem;
+            top: .2rem;
+        }
+    }
+    .project-name {
+        padding: 1rem 0rem;
+    }
+}

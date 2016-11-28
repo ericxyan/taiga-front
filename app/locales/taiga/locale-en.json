@@ -988,6 +988,7 @@
             "LINKS": "Links with Trello",
             "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original Trello card?",
             "TRELLO": {
+                "TITLE": "Trello",
                 "CHOOSE_BOARD": "Choose board that you want to import"
             }
         }

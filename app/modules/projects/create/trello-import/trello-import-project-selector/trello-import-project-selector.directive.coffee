@@ -19,7 +19,7 @@
 
 TrelloImportProjectSelectorDirective = () ->
     return {
-        templateUrl:"projects/create/trello-import/trello-import-project-selector.html",
+        templateUrl:"projects/create/trello-import/trello-import-project-selector/trello-import-project-selector.html",
         controller: "TrelloImportProjectSelectorCtrl",
         controllerAs: "vm",
         bindToController: true,

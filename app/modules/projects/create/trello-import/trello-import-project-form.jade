@@ -1,6 +1,6 @@
 .create-project.import-project
     div(ng-include="'projects/create/import/import-header.html'")
-    
+
     form
         fieldset
             label(
@@ -21,12 +21,12 @@
                 placeholder="{{'PROJECT.COMMON.PROJECT_DESCRIPTION' | translate}}"
                 data-required="true"
                 required
-            ) 
+            )
         p(
             ng-if="!vm.canCreatePrivateProjects"
             translate="PROJECT.CREATE.MAX_PRIVATE_PROJECTS"
         )
-        
+
         .privacity(role="group")
             fieldset
                 input(
@@ -60,12 +60,12 @@
                 label(for="template-private")
                     tg-svg(svg-icon="icon-lock")
                     span(translate="PROJECT.CREATE.PRIVATE_PROJECT")
-                    
+
             fieldset
                 label(for="archieved-projects")
                     strong {{'PROJECT.IMPORT.ARCHIVED' | translate}}
-                    {{'PROJECT.IMPORT.ARCHIVED_DESCRIPTION' | translate}}
-                    
+                    |{{'PROJECT.IMPORT.ARCHIVED_DESCRIPTION' | translate}}
+
                 .check
                     input.activate-input(
                         name="archieved-projects"
@@ -73,13 +73,13 @@
                     )
                     div
                     span.check-text.check-yes(translate="COMMON.YES")
-                    span.check-text.check-no(translate="COMMON.NO")    
-                    
+                    span.check-text.check-no(translate="COMMON.NO")
+
             fieldset
                 label(for="links")
                     strong {{'PROJECT.IMPORT.LINKS' | translate}}
-                    {{'PROJECT.IMPORT.LINKS_DESCRIPTION' | translate}}
-                    
+                    |{{'PROJECT.IMPORT.LINKS_DESCRIPTION' | translate}}
+
                 .check
                     input.activate-input(
                         name="links"
@@ -87,7 +87,7 @@
                     )
                     div
                     span.check-text.check-yes(translate="COMMON.YES")
-                    span.check-text.check-no(translate="COMMON.NO")                                  
+                    span.check-text.check-no(translate="COMMON.NO")
 
         .create-project-action
             button.button-green(
@@ -97,4 +97,4 @@
                 ng-disabled="!vm.project.name || !vm.project.description"
                 tg-loading="vm.loading"
                 translate="PROJECT.CREATE.TITLE"
-            )    
+            )

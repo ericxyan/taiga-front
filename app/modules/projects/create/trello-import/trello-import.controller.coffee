@@ -24,7 +24,7 @@ class TrelloImportController
 
         $timeout () =>
             @.step = 'project-select-trello'
-        , 1000
+        , 200
 
     onSelectProject: (project) ->
         @.project = project
