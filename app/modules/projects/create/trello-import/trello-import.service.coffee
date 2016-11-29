@@ -18,39 +18,41 @@
 ###
 
 class TrelloImportService extends taiga.Service
-    @.$inject = []
+    @.$inject = [
+        'tgResources',
+    ]
 
-    constructor: () ->
+    constructor: (@resources) ->
 
     fetchProjects: () ->
         return new Promise (resolve) =>
-            @.projects = Immutable.fromJS([
-                {
-                    id: 1,
-                    name: "Project1",
-                    description: "p1",
-                    is_private: true
-                },
-                {
-                    id: 2,
-                    name: "Project2",
-                    description: "p2",
-                    is_private: false
-                },
-                {
-                    id: 3,
-                    name: "Project3",
-                    description: "p3",
-                    is_private: false
-                },
-                {
-                    id: 4,
-                    name: "A Project4",
-                    description: "p4",
-                    is_private: false
-                }
-            ])
+            @resources.trelloImporter.listProjects(@.token).then (response) =>
+                @.projects = Immutable.fromJS(response.data)
+                resolve(@.projects)
 
-            resolve(@.projects)
+    fetchUsers: () ->
+        return new Promise (resolve) =>
+            @resources.trelloImporter.listUsers(@.token, @.projectId).then (response) =>
+                @.projectUsers = Immutable.fromJS(response.data)
+                resolve(@.projectUsers)
+
+    importProject: () ->
+        return new Promise (resolve) =>
+            @resources.trelloImporter.importProject(@.token, @.projectId).then (response) =>
+                @.importedProject = Immutable.fromJS(response.data)
+                resolve(@.importedProject)
+
+    getAuthUrl: () ->
+        return new Promise (resolve) =>
+            console.log(@resources)
+            @resources.trelloImporter.getAuthUrl().then (response) =>
+                @.authUrl = response.data.url
+                resolve(@.authUrl)
+
+    authorize: (verifyCode) ->
+        return new Promise (resolve) =>
+            @resources.trelloImporter.authorize(verifyCode).then (response) =>
+                @.token = response.data.token
+                resolve(@.token)
 
 angular.module("taigaProjects").service("tgTrelloImportService", TrelloImportService)

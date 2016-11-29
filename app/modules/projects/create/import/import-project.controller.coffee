@@ -18,11 +18,31 @@
 ###
 
 class ImportProjectController
-    constructor: () ->
+    @.$inject = [
+        'tgTrelloImportService',
+        '$location',
+        '$window',
+    ]
+
+    constructor: (@trelloService, @location, @window) ->
         @.from = null
+        verifyCode = @location.search().oauth_verifier
+        token = @location.search().token
+        if token
+            @.from = "trello"
+            @.token = token
+
+        if verifyCode
+            @trelloService.authorize(verifyCode).then (token) =>
+                @location.search({from: "trello", token: token})
 
     select: (from) ->
-        @.from = from
+        if from == "trello"
+            @trelloService.getAuthUrl().then (url) =>
+                console.log(url)
+                @window.open(url, "_self")
+        else
+            @.from = from
 
     onCancel: () ->
         @.from = null

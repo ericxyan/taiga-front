@@ -18,10 +18,14 @@
 ###
 
 class CreateProjectController
-    @.$inject = []
+    @.$inject = [
+        '$location'
+    ]
 
-    constructor: () ->
+    constructor: (@location) ->
         @.inDefaultStep = true
+        if @location.search().from == "trello"
+            @.getStep("import")
 
     getStep: (step) ->
         if step == 'home'
