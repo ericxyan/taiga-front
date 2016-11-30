@@ -61,36 +61,42 @@
                     tg-svg(svg-icon="icon-lock")
                     span(translate="PROJECT.CREATE.PRIVATE_PROJECT")
 
-            fieldset
-                label(for="archieved-projects")
-                    strong {{'PROJECT.IMPORT.ARCHIVED' | translate}}
-                    |{{'PROJECT.IMPORT.ARCHIVED_DESCRIPTION' | translate}}
+        fieldset
+            label(for="archieved-projects")
+                span.title {{'PROJECT.IMPORT.ARCHIVED' | translate}}
+                span.description {{'PROJECT.IMPORT.ARCHIVED_DESCRIPTION' | translate}}
 
-                .check
-                    input.activate-input(
-                        name="archieved-projects"
-                        type="checkbox"
-                    )
-                    div
-                    span.check-text.check-yes(translate="COMMON.YES")
-                    span.check-text.check-no(translate="COMMON.NO")
+            .check
+                input.activate-input(
+                    name="archieved-projects"
+                    type="checkbox"
+                )
+                div
+                span.check-text.check-yes(translate="COMMON.YES")
+                span.check-text.check-no(translate="COMMON.NO")
 
-            fieldset
-                label(for="links")
-                    strong {{'PROJECT.IMPORT.LINKS' | translate}}
-                    |{{'PROJECT.IMPORT.LINKS_DESCRIPTION' | translate}}
+        fieldset
+            label(for="links")
+                span.title {{'PROJECT.IMPORT.LINKS' | translate}}
+                span.description {{'PROJECT.IMPORT.LINKS_DESCRIPTION' | translate}}
 
-                .check
-                    input.activate-input(
-                        name="links"
-                        type="checkbox"
-                    )
-                    div
-                    span.check-text.check-yes(translate="COMMON.YES")
-                    span.check-text.check-no(translate="COMMON.NO")
+            .check
+                input.activate-input(
+                    name="links"
+                    type="checkbox"
+                )
+                div
+                span.check-text.check-yes(translate="COMMON.YES")
+                span.check-text.check-no(translate="COMMON.NO")
 
         .create-project-action
-            button.button-green(
+            button.trans-button.create-project-action-cancel(
+                type="button"
+                ng-click="vm.onCancelProjectDuplication()"
+                title="{{'PROJECT.CREATE.BACK' | translate}}"
+                translate="PROJECT.CREATE.BACK"
+            )
+            button.button-green.create-project-action-submit(
                 type="submit"
                 ng-click="vm.onSaveProjectDetails({project: project})"
                 title="{{'PROJECT.CREATE.TITLE' | translate}}"

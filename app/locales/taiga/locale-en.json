@@ -989,7 +989,9 @@
             "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original Trello card?",
             "TRELLO": {
                 "TITLE": "Trello",
-                "CHOOSE_BOARD": "Choose board that you want to import"
+                "CHOOSE_BOARD": "Choose board that you want to import",
+                "PROJECT_MEMBERS": "Project Members",
+                "PROCESS_DESCRIPTION": "Tell us who these people are in Taiga so we can assign them tasks."
             }
         }
     },

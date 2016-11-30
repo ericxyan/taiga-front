@@ -23,7 +23,8 @@ class TrelloImportController
         @.project = null
 
         $timeout () =>
-            @.step = 'project-select-trello'
+            @.step = 'project-members-trello'
+            #@.step = 'project-select-trello'
         , 200
 
     onSelectProject: (project) ->

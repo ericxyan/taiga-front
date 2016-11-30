@@ -17,17 +17,18 @@
 # File: trello-import-project-form.directive.coffee
 ###
 
-TrelloImportProjectMembersDirective = () ->
+TrelloImportProjectFormDirective = () ->
     return {
-        templateUrl:"projects/create/trello-import/trello-import-project-members.html",
-        controller: "TrelloImportProjectMembersCtrl",
+        templateUrl:"projects/create/trello-import/trello-import-project-form/trello-import-project-form.html",
+        controller: "TrelloImportProjectFormCtrl",
         controllerAs: "vm",
         bindToController: true,
         scope: {
-            project: '<'
+            project: '<',
+            onSaveProjectDetails: '&'
         }
     }
 
-TrelloImportProjectMembersDirective.$inject = []
+TrelloImportProjectFormDirective.$inject = []
 
-angular.module("taigaProjects").directive("tgTrelloImportProjectMembers", TrelloImportProjectMembersDirective)
+angular.module("taigaProjects").directive("tgTrelloImportProjectForm", TrelloImportProjectFormDirective)

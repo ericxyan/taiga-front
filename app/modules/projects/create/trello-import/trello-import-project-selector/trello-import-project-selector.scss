@@ -1,20 +1,22 @@
+$project-row-height: 50px;
+
 tg-trello-import-project-selector {
-    .search-project {
-        border-color: $whitish;
-        border-width: 0 0 2px;
-        width: 100%;
-        &:focus {
-            border-color: $gray;
-            outline: none;
-            transition: border-bottom .2s linear;
-        }
-    }
     .choose-board {
         @include font-type(bold);
     }
-    .search-project {
+    .search-project-field {
         fieldset {
             position: relative;
+        }
+        input {
+            border-color: $whitish;
+            border-width: 0 0 2px;
+            width: 100%;
+            &:focus {
+                border-color: $gray;
+                outline: none;
+                transition: border-bottom .2s linear;
+            }
         }
         tg-svg {
             position: absolute;
@@ -22,7 +24,19 @@ tg-trello-import-project-selector {
             top: .2rem;
         }
     }
+    .projects-list {
+        height: $project-row-height * 5;
+        margin-top: 1rem;
+        overflow-y: auto;
+    }
     .project-name {
-        padding: 1rem 0rem;
+        line-height: $project-row-height;
+    }
+    .cancel-import {
+        text-align: center;
+        .button {
+            background-color: $whitish;
+            color: $black;
+        }
     }
 }
