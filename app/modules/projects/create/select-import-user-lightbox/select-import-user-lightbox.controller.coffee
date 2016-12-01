@@ -17,26 +17,19 @@
 # File: trello-import-project-members.controller.coffee
 ###
 
-class TrelloImportProjectMembersController
+class SelectImportUserLightboxCtrl
     @.$inject = [
-        'tgTrelloImportService'
+        'tgUserService',
+        'tgCurrentUserService'
     ]
 
-    constructor: (@trelloImportService) ->
-        @.selectImportUserLightbox = false
-        @.members = Immutable.fromJS([
-            {
-                id: 1,
-                full_name: ''
-            }
-        ])
+    constructor: (@userService, @currentUserService) ->
+        @.user = @currentUserService.getUser()
 
-    searchUser: (user) ->
-        @.selectImportUserLightbox = true
-        @.searchingUser = user
+        @userService.getContacts(@.user.get('id')).then(@.setContacts.bind(this))
 
-    selectUser: (user) ->
-        console.log user
-        @.selectImportUserLightbox = false
+    setContacts: (contacts) ->
+        @.users = contacts
 
-angular.module('taigaProjects').controller('TrelloImportProjectMembersCtrl', TrelloImportProjectMembersController)
+
+angular.module('taigaProjects').controller('SelectImportUserLightboxCtrl', SelectImportUserLightboxCtrl)

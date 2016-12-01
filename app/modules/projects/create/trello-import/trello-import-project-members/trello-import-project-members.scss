@@ -8,6 +8,9 @@ tg-trello-import-project-members {
         border-bottom: 1px solid $gray-light;
         display: flex;
         justify-content: space-between;
+        &:last-child {
+            border: 0;
+        }
     }
     .user-info {
         display: flex;
