@@ -987,6 +987,10 @@
             "ARCHIVED_DESCRIPTION": "You have archived projects, Do you want to import your archived projects?",
             "LINKS": "Links with Trello",
             "LINKS_DESCRIPTION": "Do you want to keep the link of each item with the original Trello card?",
+            "WHO_IS": "Who is in Taiga?",
+            "WRITE_EMAIL": "Or if you want, write the email that their use in Taiga",
+            "SEARCH_CONTACT": "Or if you want, search in your contacts",
+            "WRITE_EMAIL_LABEL": "Write the email that their use in Taiga",
             "TRELLO": {
                 "TITLE": "Trello",
                 "CHOOSE_BOARD": "Choose board that you want to import",

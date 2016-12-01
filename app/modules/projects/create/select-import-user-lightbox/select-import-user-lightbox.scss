@@ -16,4 +16,18 @@ tg-select-import-user-lightbox {
             width: 32px;
         }
     }
+    .more-users {
+        padding: .5rem;
+        text-align: center;
+    }
+    .search-user-mode {
+        border-top: 1px solid $gray-light;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+    }
+    label {
+        display: block;
+        padding-bottom: .5rem;
+    }
 }
