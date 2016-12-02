@@ -11,12 +11,22 @@
                 .avatar.empty M
                 span.username Elsdfh Odsfksui
 
-            button.button.button-green Elegir
+            button.button.button-green(translate="PROJECT.IMPORT.TRELLO.CHOOSE")
+        li.user-row(ng-click="vm.searchUser({name: 'bla bla'})")
+            .user-info
+                .avatar.empty M
+                span.username Elsdfh Odsfksui
 
+            button.button.button-green(translate="PROJECT.IMPORT.TRELLO.CHOOSE")
 
-   tg-select-import-user-lightbox.lightbox(
+    button.button.button-green.submit(
+        ng-click="vm.onSubmit({users: vm.selectedUsers})"
+        translate="PROJECT.IMPORT.IMPORT"
+    )
+
+    tg-select-import-user-lightbox.lightbox(
        visible="vm.selectImportUserLightbox"
        on-close="vm.selectImportUserLightbox = false"
        user="vm.searchingUser"
        on-select-user="vm.selectUser(user)"
-   )
+    )

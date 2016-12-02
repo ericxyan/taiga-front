@@ -991,11 +991,18 @@
             "WRITE_EMAIL": "Or if you want, write the email that their use in Taiga",
             "SEARCH_CONTACT": "Or if you want, search in your contacts",
             "WRITE_EMAIL_LABEL": "Write the email that their use in Taiga",
+            "EMAIL_NOT_FOUND": "We did not find any users with that email",
+            "WARNING": {
+                "TITLE": "Some taks will be unassigned",
+                "DESCRIPTION": "There are still unidentified people. The cards assigned to these people will remain unassigned. Check all the contacts to not lose that information.",
+                "CHECK": "Check contacts"
+            },
             "TRELLO": {
                 "TITLE": "Trello",
                 "CHOOSE_BOARD": "Choose board that you want to import",
                 "PROJECT_MEMBERS": "Project Members",
-                "PROCESS_DESCRIPTION": "Tell us who these people are in Taiga so we can assign them tasks."
+                "PROCESS_DESCRIPTION": "Tell us who these people are in Taiga so we can assign them tasks.",
+                "CHOOSE": "Elegir"
             }
         }
     },

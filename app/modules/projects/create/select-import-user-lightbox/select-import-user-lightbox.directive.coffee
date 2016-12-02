@@ -21,7 +21,7 @@ SelectImportUserLightboxDirective = (lightboxService, lightboxKeyboardNavigation
     link = (scope, el, attrs) ->
         scope.$watch 'vm.visible', (visible) ->
             if visible && !el.hasClass('open')
-                lightboxService.open(el).then ->
+                lightboxService.open(el, scope.vm.onClose).then ->
                     el.find('input').focus()
                     lightboxKeyboardNavigationService.init(el)
             else if !visible && el.hasClass('open')

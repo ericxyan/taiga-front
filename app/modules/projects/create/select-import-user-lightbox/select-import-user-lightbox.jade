@@ -17,18 +17,27 @@ tg-lightbox-close(on-close="vm.onClose()")
             title="{{vm.user.name}}"
         ) {{vm.user.name}}
 
-    div(ng-if="vm.mode == 'mail'")
+    form(ng-if="vm.mode == 'mail'", ng-submit="vm.searchUser()")
         fieldset
+            p.error(ng-if="vm.invalid", translate="PROJECT.IMPORT.EMAIL_NOT_FOUND")
+
             label(
                 translate="PROJECT.IMPORT.WRITE_EMAIL_LABEL"
                 for="user-name"
             )
-            input(
-                name="user-name"
-                type="text",
-                data-maxlength="500",
-                ng-model="vm.userEmail"
-            )
+
+            .group
+                input(
+                    name="user-name"
+                    type="text",
+                    data-maxlength="500",
+                    ng-model="vm.userEmail"
+                )
+                button.button-green.submit-button(
+                    type="submit",
+                    title="{{'LIGHTBOX.SEARCH.TITLE' | translate}}",
+                    translate="LIGHTBOX.SEARCH.TITLE"
+                )
 
         .search-user-mode
             p

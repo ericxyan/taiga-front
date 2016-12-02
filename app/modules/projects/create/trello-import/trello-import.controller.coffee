@@ -35,4 +35,13 @@ class TrelloImportController
         @.project = project
         @.step = 'project-members-trello'
 
+    onSelectUsers: (users) ->
+        @.step = 'warning-user-import'
+
+    onConfirm: () ->
+        console.log "confirm"
+
+    onCancelWarningUserImport: () ->
+        @.step = 'project-members-trello'
+
 angular.module('taigaProjects').controller('TrelloImportCtrl', ['$timeout', TrelloImportController])

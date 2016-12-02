@@ -24,6 +24,7 @@ class TrelloImportProjectMembersController
 
     constructor: (@trelloImportService) ->
         @.selectImportUserLightbox = false
+        @.selectedUsers = []
         @.members = Immutable.fromJS([
             {
                 id: 1,

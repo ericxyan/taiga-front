@@ -10,10 +10,17 @@ tg-trello-import-project-selector(
 tg-trello-import-project-form(
     project="vm.project"
     on-save-project-details="vm.onSaveProjectDetails(project)"
-    ng-if="vm.step == 'project-form-trello'"    
+    ng-if="vm.step == 'project-form-trello'"
 )
 
 tg-trello-import-project-members(
     project="vm.project"
-    ng-if="vm.step == 'project-members-trello'"    
+    ng-if="vm.step == 'project-members-trello'"
+    on-submit="vm.onSelectUsers(users)"
+)
+
+tg-warning-user-import(
+    ng-if="vm.step == 'warning-user-import'"
+    on-confirm="vm.onConfirm()"
+    on-cancel="vm.onCancelWarningUserImport()"
 )

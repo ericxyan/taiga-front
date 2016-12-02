@@ -14,26 +14,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: trello-import-project-members.controller.coffee
+# File: warning-user-import.directive.coffee
 ###
 
-class SelectImportUserLightboxCtrl
-    @.$inject = [
-        'tgUserService',
-        'tgCurrentUserService'
-    ]
+WarningUserImportDirective = () ->
+    return {
+        templateUrl:"projects/create/warning-user-import/warning-user-import.html",
+        scope: {
+            onCancel: '&',
+            onConfirm: '&'
+        }
+    }
 
-    constructor: (@userService, @currentUserService) ->
-        @.user = @currentUserService.getUser()
-        @.mode = 'search'
-        @.invalid = false
+WarningUserImportDirective.$inject = []
 
-        @userService.getContacts(@.user.get('id')).then(@.setContacts.bind(this))
-
-    setContacts: (contacts) ->
-        @.users = contacts
-
-    searchUser: () ->
-        @.invalid = true
-
-angular.module('taigaProjects').controller('SelectImportUserLightboxCtrl', SelectImportUserLightboxCtrl)
+angular.module("taigaProjects").directive("tgWarningUserImport", WarningUserImportDirective)
