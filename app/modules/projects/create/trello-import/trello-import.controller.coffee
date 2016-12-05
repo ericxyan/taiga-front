@@ -21,11 +21,17 @@ class TrelloImportController
     constructor: ($timeout, @trelloImportService) ->
         @.step = 'autorization-trello'
         @.project = null
+        taiga.defineImmutableProperty @, 'projects', () => return @trelloImportService.projects
+        taiga.defineImmutableProperty @, 'members', () => return @trelloImportService.projectUsers
 
         $timeout () =>
             #@.step = 'project-members-trello'
-            @.step = 'project-select-trello'
+            @.startProjectSelector()
         , 200
+
+    startProjectSelector: () ->
+        @.step = 'project-select-trello'
+        @trelloImportService.fetchProjects()
 
     onSelectProject: (project) ->
         @.step = 'project-form-trello'
@@ -35,7 +41,7 @@ class TrelloImportController
         @.project = project
         @.step = 'project-members-trello'
 
-        @trelloImportService.getUsers(@.project.id).then (members) => @.members = members
+        @trelloImportService.fetchUsers(@.project.get('id'))
 
     onSelectUsers: (users) ->
         console.log "import"

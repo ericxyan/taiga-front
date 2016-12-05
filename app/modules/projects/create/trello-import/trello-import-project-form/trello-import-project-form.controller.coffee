@@ -26,8 +26,13 @@ class TrelloImportProjectFormController
         @.canCreatePublicProjects = @currentUserService.canCreatePublicProjects()
         @.canCreatePrivateProjects = @currentUserService.canCreatePrivateProjects()
 
-        @.project.is_private = false
-        @.project.archived = false
-        @.project.links = false
+        @.projectForm = @.project.toJS()
+
+        @.projectForm.is_private = false
+        @.projectForm.archived = false
+        @.projectForm.links = false
+
+    saveProjectDetails: (project) ->
+        @.onSaveProjectDetails({project: Immutable.fromJS(project)})
 
 angular.module('taigaProjects').controller('TrelloImportProjectFormCtrl', TrelloImportProjectFormController)

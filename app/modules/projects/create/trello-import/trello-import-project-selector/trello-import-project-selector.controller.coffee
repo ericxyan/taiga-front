@@ -18,13 +18,8 @@
 ###
 
 class TrelloImportProjectSelectorController
-    @.$inject = [
-        'tgTrelloImportService'
-    ]
-
-    constructor: (@trelloImportService) ->
-        taiga.defineImmutableProperty @, 'projects', () => return @trelloImportService.projects
-        @trelloImportService.fetchProjects()
+    selectProject: (project) ->
+        @.onSelectProject({project: Immutable.fromJS(project)})
 
         # @.projects = Immutable.fromJS([
         #     {

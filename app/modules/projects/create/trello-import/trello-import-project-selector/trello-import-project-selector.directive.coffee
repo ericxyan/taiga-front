@@ -24,6 +24,7 @@ TrelloImportProjectSelectorDirective = () ->
         controllerAs: "vm",
         bindToController: true,
         scope: {
+            projects: '<',
             onCancel: '&',
             onSelectProject: '&'
         }

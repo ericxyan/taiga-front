@@ -19,7 +19,7 @@
         ul.projects-list
             li.project-name(
                 ng-repeat="project in vm.projects | toMutable | orderBy:'name' | filter:vm.searchText track by project.id"
-                ng-click="vm.onSelectProject({project: project})"
+                ng-click="vm.selectProject(project)"
             ) {{project.name}}
 
         p.cancel-import

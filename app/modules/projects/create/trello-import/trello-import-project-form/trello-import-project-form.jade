@@ -9,7 +9,7 @@
             )
             input(
                 type="text"
-                ng-model="vm.project.name"
+                ng-model="vm.projectForm.name"
                 placeholder="{{'PROJECT.COMMON.PROJECT_TITLE' | translate}}"
                 name="project-name"
                 data-required="true"
@@ -17,7 +17,7 @@
             )
         fieldset
             textarea(
-                ng-model="vm.project.description"
+                ng-model="vm.projectForm.description"
                 placeholder="{{'PROJECT.COMMON.PROJECT_DESCRIPTION' | translate}}"
                 data-required="true"
                 required
@@ -36,7 +36,7 @@
                     data-required="true"
                     aria-hidden="true"
                     ng-value="false"
-                    ng-model="vm.project.is_private"
+                    ng-model="vm.projectForm.is_private"
                     required
                     ng-disabled="!vm.canCreatePublicProjects"
                     ng-checked="vm.canCreatePublicProjects"
@@ -51,7 +51,7 @@
                     id="template-private"
                     data-required="true"
                     ng-value="true"
-                    ng-model="vm.project.is_private"
+                    ng-model="vm.projectForm.is_private"
                     aria-hidden="true"
                     required
                     ng-disabled="!vm.canCreatePrivateProjects"
@@ -100,9 +100,9 @@
             )
             button.button-green.create-project-action-submit(
                 type="submit"
-                ng-click="vm.onSaveProjectDetails({project: vm.project})"
+                ng-click="vm.saveProjectDetails(vm.projectForm)"
                 title="{{'PROJECT.CREATE.TITLE' | translate}}"
-                ng-disabled="!vm.project.name || !vm.project.description"
+                ng-disabled="!vm.projectForm.name || !vm.projectForm.description"
                 tg-loading="vm.loading"
                 translate="PROJECT.CREATE.TITLE"
             )
