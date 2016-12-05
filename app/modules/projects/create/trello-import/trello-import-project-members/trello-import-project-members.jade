@@ -6,21 +6,18 @@
 
     p.importer-name(translate="PROJECT.IMPORT.TRELLO.TITLE")
     ul
-        li.user-row(ng-click="vm.searchUser({name: 'bla bla'})")
+        li.user-row(tg-repeat="member in vm.members track by member.get('id')")
             .user-info
-                .avatar.empty M
-                span.username Elsdfh Odsfksui
+                .avatar.empty {{member.get('fullName')[0].toUpperCase()}}
+                span.username {{member.get('fullName')}}
 
-            button.button.button-green(translate="PROJECT.IMPORT.TRELLO.CHOOSE")
-        li.user-row(ng-click="vm.searchUser({name: 'bla bla'})")
-            .user-info
-                .avatar.empty M
-                span.username Elsdfh Odsfksui
-
-            button.button.button-green(translate="PROJECT.IMPORT.TRELLO.CHOOSE")
+            button.button.button-green(
+                ng-click="vm.searchUser(member)"
+                translate="PROJECT.IMPORT.TRELLO.CHOOSE"
+            )
 
     button.button.button-green.submit(
-        ng-click="vm.onSubmit({users: vm.selectedUsers})"
+        ng-click="vm.beforeSubmitUsers()"
         translate="PROJECT.IMPORT.IMPORT"
     )
 
@@ -29,4 +26,10 @@
        on-close="vm.selectImportUserLightbox = false"
        user="vm.searchingUser"
        on-select-user="vm.selectUser(user)"
+    )
+
+    tg-warning-user-import-lightbox.lightbox(
+        visible="vm.warningImportUsers"
+        on-confirm="vm.onConfirm()"
+        on-close="vm.warningImportUsers = false"
     )

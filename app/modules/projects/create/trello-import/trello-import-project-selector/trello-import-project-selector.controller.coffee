@@ -23,71 +23,70 @@ class TrelloImportProjectSelectorController
     ]
 
     constructor: (@trelloImportService) ->
-        # taiga.defineImmutableProperty @, 'projects', () => return @trelloImportService.projects
-        # @trelloImportService.fetchProjects()
+        taiga.defineImmutableProperty @, 'projects', () => return @trelloImportService.projects
+        @trelloImportService.fetchProjects()
 
-        # return
-        @.projects = Immutable.fromJS([
-            {
-                id: 1,
-                name: "Project1",
-                description: "p1",
-                is_private: true
-            },
-            {
-                id: 2,
-                name: "Project2",
-                description: "p2",
-                is_private: false
-            },
-            {
-                id: 3,
-                name: "Project3",
-                description: "p3",
-                is_private: false
-            },
-            {
-                id: 4,
-                name: "A Project4",
-                description: "p4",
-                is_private: false
-            },
-            {
-                id: 10,
-                name: "Project2",
-                description: "p2",
-                is_private: false
-            },
-            {
-                id: 11,
-                name: "Project3",
-                description: "p3",
-                is_private: false
-            },
-            {
-                id: 12,
-                name: "A Project4",
-                description: "p4",
-                is_private: false
-            },
-            {
-                id: 5,
-                name: "Project2",
-                description: "p2",
-                is_private: false
-            },
-            {
-                id: 6,
-                name: "Project3",
-                description: "p3",
-                is_private: false
-            },
-            {
-                id: 7,
-                name: "A Project4",
-                description: "p4",
-                is_private: false
-            }
-        ]);
+        # @.projects = Immutable.fromJS([
+        #     {
+        #         id: 1,
+        #         name: "Project1",
+        #         description: "p1",
+        #         is_private: true
+        #     },
+        #     {
+        #         id: 2,
+        #         name: "Project2",
+        #         description: "p2",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 3,
+        #         name: "Project3",
+        #         description: "p3",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 4,
+        #         name: "A Project4",
+        #         description: "p4",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 10,
+        #         name: "Project2",
+        #         description: "p2",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 11,
+        #         name: "Project3",
+        #         description: "p3",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 12,
+        #         name: "A Project4",
+        #         description: "p4",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 5,
+        #         name: "Project2",
+        #         description: "p2",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 6,
+        #         name: "Project3",
+        #         description: "p3",
+        #         is_private: false
+        #     },
+        #     {
+        #         id: 7,
+        #         name: "A Project4",
+        #         description: "p4",
+        #         is_private: false
+        #     }
+        # ]);
 
 angular.module('taigaProjects').controller('TrelloImportProjectSelectorCtrl', TrelloImportProjectSelectorController)

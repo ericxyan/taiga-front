@@ -20,21 +20,19 @@
 class TrelloImportService extends taiga.Service
     @.$inject = [
         'tgResources',
+        '$location'
     ]
 
-    constructor: (@resources) ->
+    constructor: (@resources, @location) ->
+        @.projects = Immutable.List()
+        @.projectUsers = Immutable.List()
+        @.token = @location.search().token
 
     fetchProjects: () ->
-        return new Promise (resolve) =>
-            @resources.trelloImporter.listProjects(@.token).then (response) =>
-                @.projects = Immutable.fromJS(response.data)
-                resolve(@.projects)
+        @resources.trelloImporter.listProjects(@.token).then (projects) => @.projects = projects
 
-    fetchUsers: () ->
-        return new Promise (resolve) =>
-            @resources.trelloImporter.listUsers(@.token, @.projectId).then (response) =>
-                @.projectUsers = Immutable.fromJS(response.data)
-                resolve(@.projectUsers)
+    getUsers: (projectId) ->
+        @resources.trelloImporter.listUsers(@.token, projectId)
 
     importProject: () ->
         return new Promise (resolve) =>

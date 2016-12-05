@@ -24,6 +24,7 @@ TrelloImportProjectMembersDirective = () ->
         controllerAs: "vm",
         bindToController: true,
         scope: {
+            members: '<',
             project: '<',
             onSubmit: '&'
         }

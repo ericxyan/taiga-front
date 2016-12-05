@@ -68,6 +68,7 @@
 
             .check
                 input.activate-input(
+                    ng-model="vm.archived"
                     name="archieved-projects"
                     type="checkbox"
                 )
@@ -82,6 +83,7 @@
 
             .check
                 input.activate-input(
+                    ng-model="vm.links"
                     name="links"
                     type="checkbox"
                 )
@@ -98,7 +100,7 @@
             )
             button.button-green.create-project-action-submit(
                 type="submit"
-                ng-click="vm.onSaveProjectDetails({project: project})"
+                ng-click="vm.onSaveProjectDetails({project: vm.project})"
                 title="{{'PROJECT.CREATE.TITLE' | translate}}"
                 ng-disabled="!vm.project.name || !vm.project.description"
                 tg-loading="vm.loading"

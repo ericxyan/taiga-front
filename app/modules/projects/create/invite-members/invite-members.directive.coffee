@@ -18,10 +18,7 @@
 ###
 
 InviteMembersDirective = () ->
-
     link = (scope, el, attr, ctrl) ->
-        scope.$watch 'vm.members', (members) ->
-            ctrl.members = members
 
     return {
         link: link,
@@ -30,7 +27,7 @@ InviteMembersDirective = () ->
         controllerAs: "vm",
         bindToController: true,
         scope: {
-            members: '=',
+            members: '>',
             onSetInvitedMembers: '&'
         }
     }

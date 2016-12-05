@@ -38,11 +38,11 @@ TrelloResource = (urlsService, http) ->
 
     service.listProjects = (token) ->
         url = urlsService.resolve("importers-trello-list-projects")
-        return http.post(url, {token: token})
+        return http.post(url, {token: token}).then (response) -> Immutable.fromJS(response.data)
 
     service.listUsers = (token, projectId) ->
         url = urlsService.resolve("importers-trello-list-users")
-        return http.post(url, {token: token, project: projectId})
+        return http.post(url, {token: token, project: projectId}).then (response) -> Immutable.fromJS(response.data)
 
     service.importProject = (token, projectId, userBindings, keepExternalReference, isPrivate) ->
         url = urlsService.resolve("importers-trello-import-project")

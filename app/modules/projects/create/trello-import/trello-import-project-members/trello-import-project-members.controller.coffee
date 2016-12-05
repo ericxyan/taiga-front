@@ -24,20 +24,25 @@ class TrelloImportProjectMembersController
 
     constructor: (@trelloImportService) ->
         @.selectImportUserLightbox = false
+        @.warningImportUsers = false
         @.selectedUsers = []
-        @.members = Immutable.fromJS([
-            {
-                id: 1,
-                full_name: ''
-            }
-        ])
+        # console.log @.members
+        # @.members = Immutable.fromJS([
+        #     {
+        #         id: 1,
+        #         full_name: ''
+        #     }
+        # ])
 
     searchUser: (user) ->
         @.selectImportUserLightbox = true
         @.searchingUser = user
 
     selectUser: (user) ->
-        console.log user
         @.selectImportUserLightbox = false
+
+    beforeSubmitUsers: () ->
+        @.warningImportUsers = true
+        #@.onSubmit({users: @.selectedUsers})
 
 angular.module('taigaProjects').controller('TrelloImportProjectMembersCtrl', TrelloImportProjectMembersController)

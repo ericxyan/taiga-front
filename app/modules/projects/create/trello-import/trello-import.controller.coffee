@@ -18,30 +18,26 @@
 ###
 
 class TrelloImportController
-    constructor: ($timeout) ->
+    constructor: ($timeout, @trelloImportService) ->
         @.step = 'autorization-trello'
         @.project = null
 
         $timeout () =>
-            @.step = 'project-members-trello'
-            #@.step = 'project-select-trello'
+            #@.step = 'project-members-trello'
+            @.step = 'project-select-trello'
         , 200
 
     onSelectProject: (project) ->
-        @.project = project
         @.step = 'project-form-trello'
+        @.project = project
 
     onSaveProjectDetails: (project) ->
         @.project = project
         @.step = 'project-members-trello'
 
+        @trelloImportService.getUsers(@.project.id).then (members) => @.members = members
+
     onSelectUsers: (users) ->
-        @.step = 'warning-user-import'
+        console.log "import"
 
-    onConfirm: () ->
-        console.log "confirm"
-
-    onCancelWarningUserImport: () ->
-        @.step = 'project-members-trello'
-
-angular.module('taigaProjects').controller('TrelloImportCtrl', ['$timeout', TrelloImportController])
+angular.module('taigaProjects').controller('TrelloImportCtrl', ['$timeout', "tgTrelloImportService", TrelloImportController])

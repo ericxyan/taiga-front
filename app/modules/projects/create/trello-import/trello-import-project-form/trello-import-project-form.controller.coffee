@@ -26,4 +26,8 @@ class TrelloImportProjectFormController
         @.canCreatePublicProjects = @currentUserService.canCreatePublicProjects()
         @.canCreatePrivateProjects = @currentUserService.canCreatePrivateProjects()
 
+        @.project.is_private = false
+        @.project.archived = false
+        @.project.links = false
+
 angular.module('taigaProjects').controller('TrelloImportProjectFormCtrl', TrelloImportProjectFormController)
